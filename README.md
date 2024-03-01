@@ -1,39 +1,69 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+![Alt Text]()
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+<img src="https://github.com/Avinash1705/image_item_slider/assets/34656820/17538bea-4084-4970-af59-de351290bcdf" width="150" height="280">
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+## auto scroll slider Package
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+The Auto Scroll Slider package for Flutter provides a convenient solution for creating
+auto-scrolling image lists with an animated interface, enhancing user experience and visual appeal.
 
-## Features
+## Installing
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+Add dependency to ```pubspec.yaml```
+To use the latest version of `auto_scroll_slider`, add the following line to your `pubspec.yaml`
+file:
 
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
+```yaml
+dependencies:
+  image_item_slider:
 ```
 
-## Additional information
+Install it
+You can install packages from the command line:
+with ```Flutter```:
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```shell    
+$ flutter pub get
+```
+
+Import the package
+
+```dart
+import 'package:image_item_slider/mine_package.dart';
+```
+
+
+## Example
+
+ Widget _buildPageItem(int position, image) {
+    Matrix4 matrix4 = Matrix4.identity();
+    if (position == _currentPageValue.floor()) {
+      var currScale = 1 - (_currentPageValue - position) * (1 - scaleFactor);
+      var currTrans = _height * (1 - currScale) / 2;
+      matrix4 = Matrix4.diagonal3Values(1, currScale, 1)
+        ..setTranslationRaw(0, currTrans, 0);
+    } else if (position == _currentPageValue.floor() + 1) {
+      var currScale =
+          scaleFactor + (_currentPageValue - position) * (1 - scaleFactor);
+      var currTrans = _height * (1 - currScale) / 2;
+      matrix4 = Matrix4.diagonal3Values(1, currScale, 1)
+        ..setTranslationRaw(0, currTrans, 0);
+    } else {
+      var currScale = 0.8;
+      matrix4 = Matrix4.diagonal3Values(1, currScale, 1)
+        ..setTranslationRaw(0, _height * (1 - scaleFactor), 1);
+    }
+
+## License
+
+This package is released under
+the [ License]().
+
+## Additional Information
+
+👍 We're thrilled that our solution is adding value and positively impacting your project! ✨ Your
+support means the world to us. 🌟 If you're loving the results, show your appreciation with a thumbs
+up! 💫 We're committed to excellence and continuously strive to exceed your expectations. Thank you
+for choosing us! 🚀
+
+**Avinash Rawat**
