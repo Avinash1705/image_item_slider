@@ -1,4 +1,5 @@
 # image_item_slider
+Flutter Package live on Pub Dev
 Flutter images for sliding images
 
 
